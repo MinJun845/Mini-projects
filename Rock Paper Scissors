@@ -1,0 +1,46 @@
+# ROCK PAPER SCISORS
+import random
+
+playerName = input('Player name:')
+print ('Hello '+ playerName + '! ' + 'We are playing Rock Paper Scissors against the computer today.\n')
+
+choices = ['Rock' , 'Paper', 'Scissors']
+
+#COMPARE + LOOPS
+while True:
+    compChoice = random.choice(choices)
+    playerChoice = input('Choose Rock, Paper or Scissors: \n').capitalize()
+    # CHECK
+    if playerChoice not in choices:
+        print('Please choose again!')
+
+    else:
+        print ('Computer chose: '+ compChoice)
+
+        if playerChoice == compChoice:
+            print('Tie!')
+            print('You both chose ' + compChoice)
+
+        elif playerChoice == 'Scissors':
+            if compChoice == 'Rock':
+
+                print('You got smashed by Rock! You lost.')
+            else:
+                print('You cut Paper! You win.')
+
+        elif playerChoice == 'Rock':
+            if compChoice == 'Paper':
+                print('Paper covers you! You lost.')
+            else:
+                print('You smashed Scissors! You win.')
+
+        elif playerChoice == 'Paper':
+            if compChoice == 'Scissors':
+                print('Scissors cut you! You lost.')
+            else:
+                print('You cover rock! You win.')
+
+        again = input('\n Do you want to play again? Y/N: \n').upper()
+        if again == 'N':
+            print('\n BYE!')
+            break
