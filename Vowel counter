@@ -1,17 +1,34 @@
-word = input("Enter a word:")
 vowels = ["a", "e", "i", "o", "u"]
-count = 0
-while word.isalpha() == False or len(word) == 0:
-    print("Invalid word")
+words = []
+total = 0
+highest = -9999
+high = ""
+for y in range(5):
     word = input("Enter a word:")
-word = word.lower()
-for i in range(len(vowels)):
-    for x in word:
-        if vowels[i] == x:
-            count += 1
-if count == 0:
-    print("There are no vowels in the word")
-if count == 1:
-    print("There is one vowel in the word")
-if count >= 2:
-    print("There are {} vowels in the word".format(count))
+    count = 0
+    while word.isalpha() == False or len(word) == 0:
+        print("Invalid word")
+        word = input("Enter a word:")
+    word = word.lower()
+    for i in range(len(vowels)):
+        for x in word:
+            if vowels[i] == x:
+                count += 1
+    total += count
+    if count > highest:
+        highest = count
+        high = word
+    if count == 0:
+        print("There are no vowels in the word")
+    if count == 1:
+        print("There is one vowel in the word")
+    if count >= 2:
+        print("There are {} vowels in the word".format(count))
+        words.append(word)
+
+print(words)
+print("You entered {} vowels altogether".format(total))
+if highest == -9999:
+    high = word
+else:
+    print("The word enetered with the highest amount of vowels is" + str(high))
